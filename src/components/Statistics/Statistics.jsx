@@ -1,20 +1,29 @@
-
+import { getRandomHexColor } from './randomColor'
 import PropTypes from 'prop-types'
-import { StatisticsSection } from './Statistics.styled'
+import { ThemeProvider } from 'styled-components';
+import { StatisticsSection, StatisticsTitle, StatisticsList, StatisticsItemSection, StatisticsItem } from './Statistics.styled'
+
+
+
 
 export const Statistics = ({title, stats}) => {
     const list = stats.map((stat) => {
-            return ( <li key={stat.id}>
-                <span>{stat.label}</span>
-                <span>{stat.percentage}%</span>
-              </li>)
+        let randomBGColor = getRandomHexColor();
+            return ( 
+                <StatisticsItem style={{
+                    backgroundColor: `${randomBGColor}`,
+                  }} key={stat.id}>
+                <StatisticsItemSection>{stat.label}</StatisticsItemSection>
+                <StatisticsItemSection>{stat.percentage}%</StatisticsItemSection>
+              </StatisticsItem>
+            )
         })
     return (
     <StatisticsSection>
-    {title ? <h2>{title}</h2> : ''}
-    <ul>
+    {title ? <StatisticsTitle>{title}</StatisticsTitle> : ''}
+    <StatisticsList>
     {list}
-    </ul>
+    </StatisticsList>
     </StatisticsSection>
     )
 }
