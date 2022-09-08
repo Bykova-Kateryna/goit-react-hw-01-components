@@ -1,6 +1,5 @@
 import { getRandomHexColor } from './randomColor'
 import PropTypes from 'prop-types'
-import { ThemeProvider } from 'styled-components';
 import { StatisticsSection, StatisticsTitle, StatisticsList, StatisticsItemSection, StatisticsItem } from './Statistics.styled'
 
 
