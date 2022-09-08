@@ -1,7 +1,6 @@
 
 import PropTypes from 'prop-types'
-import { StatisticsSection,
-    StatisticsSectionItem } from './Statistics.styled'
+import { StatisticsSection } from './Statistics.styled'
 
 export const Statistics = ({title, stats}) => {
     const list = stats.map((stat) => {
